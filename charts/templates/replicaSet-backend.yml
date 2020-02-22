@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: {{ .Release.Name }}-api
+  namespace: api
+  labels:
+    app: api
+
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+      - name: api
+        image: {{ .Values.imageBackend }}
+        env:
+          - name: db_url
+            valueFrom: 
+              configMapKeyRef:
+                name: {{ .Release.Name }}-configmap-api
+                key: db_url
+          - name: bucket_url
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Release.Name }}-configmap-api
+                key: bucket_url
+        ports:
+        - name: live-port
+          containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /test
+            port: 8080
+          initialDelaySeconds: 60
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /test
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+      imagePullSecrets:
+      - name: {{ .Release.Name }}-registrykey
+
