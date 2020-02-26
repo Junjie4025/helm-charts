@@ -30,6 +30,17 @@ spec:
               configMapKeyRef:
                 name: {{ .Release.Name }}-configmap-api
                 key: bucket_url
+      initContainers:
+        - name: init-redis
+          image: {{ .Values.initContainers.name }}
+          command:
+            - 'sh'
+            - '-c'
+            - >
+              until nslookup {{ template "redis.fullname" . }}-redis.default ;
+                do echo waiting for myservice;
+                sleep 2;
+              done;
         ports:
         - name: live-port
           containerPort: 8080
