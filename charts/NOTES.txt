@@ -1,4 +1,4 @@
-# helm-chartsTo get the application running, use these commands:
+To get the application running, use these commands:
 1. Bring up your Kubernetes cluster.(May take 5-10 minutes)
 2. Spin up your RDS instance on AWS.(May take 5-10 minutes)
 3. Set up your Kubernetes dashboard by using the following commands:
