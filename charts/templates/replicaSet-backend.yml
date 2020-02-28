@@ -30,15 +30,26 @@ spec:
               configMapKeyRef:
                 name: {{ .Release.Name }}-configmap-api
                 key: bucket_url
+          - name: redisHost
+            value: {{ .Release.Name }}-redis.default 
+          - name: redisPass
+            value: {{ .Values.redis.password }}
+          - name: redisPort
+            value: {{ .Values.redisPort | quote }}
         ports:
-        - name: live-port
-          containerPort: 8080
+          - name: live-port
+            containerPort: 8080
         livenessProbe:
           httpGet:
             path: /test
             port: 8080
           initialDelaySeconds: 60
           periodSeconds: 10
+        livenessProbe:
+          exec:
+            command: ['sh', '-c', 'redis-cli']
+          initialDelaySeconds: 60
+          periodSeconds: 60
         readinessProbe:
           httpGet:
             path: /test
@@ -47,4 +58,16 @@ spec:
           periodSeconds: 10
       imagePullSecrets:
       - name: {{ .Release.Name }}-registrykey
+      initContainers:
+        - name: init-redis
+          image: {{ .Values.initContainers.name }}
+          command:
+            - 'sh'
+            - '-c'
+            - >
+              until nslookup {{ .Release.Name }}-redis.default ;
+                do echo waiting for myservice;
+                sleep 2;
+              done;
+
 
