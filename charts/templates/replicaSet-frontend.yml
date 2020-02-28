@@ -15,6 +15,17 @@ spec:
       labels:
         app: ui
     spec:
+      initContainers:
+        - name: init-cotainer-ui
+          image: {{ .Values.initContainers.name }}
+          command:
+            - 'sh'
+            - '-c'
+            - >
+              until nslookup {{ .Release.Name }}-load-balancer-ui.ui ;
+                do echo waiting for myservice;
+                sleep 60;
+              done;
       # initContainers:
       #   - name: init-container
       #     image: busybox:1.28
