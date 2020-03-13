@@ -48,5 +48,12 @@ spec:
             port: 3000
           initialDelaySeconds: 30
           periodSeconds: 10
+        env:
+          - name: url
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Release.Name }}-configmap-ui
+                key: url
       imagePullSecrets:
       - name: {{ .Release.Name }}-registrykey
+
