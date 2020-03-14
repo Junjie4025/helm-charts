@@ -14,3 +14,4 @@ node {
                 sh "helm install test-${commit_id} ./charts"
             }
         }
+}
