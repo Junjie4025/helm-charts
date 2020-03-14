@@ -1,0 +1,21 @@
+# Default values for mychart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 2
+imageBackend: junjie3617/webapp-backend:latest
+imageFrontend: junjie3617/webapp-frontend:latest
+
+backendUrl: localhost
+databaseUrl: db1.cg5qut7oyct5.us-east-1.rds.amazonaws.com
+bucketUrl: webapp-csye7374
+
+imagePullSecrets: ewoJImF1dGhzIjogewoJCSJodHRwczovL2luZGV4LmRvY2tlci5pby92MS8iOiB7CgkJCSJhdXRoIjogImFuVnVhbWxsTXpZeE56cElSV3AxYm1wcFpURXlNekF3TUE9PSIKCQl9Cgl9LAoJIkh0dHBIZWFkZXJzIjogewoJCSJVc2VyLUFnZW50IjogIkRvY2tlci1DbGllbnQvMTkuMDMuNSAoZGFyd2luKSIKCX0sCgkiZXhwZXJpbWVudGFsIjogImRpc2FibGVkIiwKCSJzdGFja09yY2hlc3RyYXRvciI6ICJzd2FybSIKfQ==
+
+redis:
+    password: "password"
+
+redisPort: 6379
+
+initContainers:
+    name: busybox:1.28
