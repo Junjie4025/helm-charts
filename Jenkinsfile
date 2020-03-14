@@ -1,5 +1,4 @@
 node {
-    def commit_id
         stage('Clone Repository') {
             checkout scm
         }
@@ -11,7 +10,7 @@ node {
                            credentialsId: '08c14baf-7489-4e97-adac-7638f765329e', 
                            namespace: '', 
                            serverUrl: 'https://api.k8s.dev.hejunjie3617.me') {
-                sh "helm install test-${commit_id} ./charts"
+                sh "helm install test ./charts"
             }
         }
 }
