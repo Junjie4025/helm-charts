@@ -26,3 +26,5 @@ Where 'test1' is the any desired name of the release and './charts' is the chart
 
 At this point, your dashboard should have your container ready.
 Hitting the load balancer URL will let you access your application successfully.
+
+test
