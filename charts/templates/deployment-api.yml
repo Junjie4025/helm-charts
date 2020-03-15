@@ -25,6 +25,7 @@ spec:
       containers:
       - name: api
         image: {{ .Values.imageBackend }}
+        imagePullPolicy: Always
         env:
           - name: db_url
             valueFrom: 
