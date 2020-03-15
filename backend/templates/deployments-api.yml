@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
   name: {{ .Release.Name }}-api
   namespace: api
@@ -8,6 +8,11 @@ metadata:
 
 spec:
   replicas: {{ .Values.replicaCount }}
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
   selector:
     matchLabels:
       app: api
@@ -15,6 +20,9 @@ spec:
     metadata:
       labels:
         app: api
+      annotations: 
+        prometheus.io/scrape: 'true'
+        prometheus.io/port: '8002'
     spec:
       containers:
       - name: api
@@ -69,5 +77,3 @@ spec:
                 do echo waiting for myservice;
                 sleep 2;
               done;
-
-
