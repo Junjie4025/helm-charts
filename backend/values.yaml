@@ -5,17 +5,14 @@
 replicaCount: 2
 imageBackend: soniamahankali/webapp-backend:900a041409b98a95fad37b5b2c27104e0d44020d
 imageFrontend: soniamahankali/webapp-frontend:latest
-
-
 databaseUrl: db1.cr0cwfqbfpxp.us-east-1.rds.amazonaws.com
 bucketUrl: k8s.dev.soniamahankali.com
-
 imagePullSecrets: ewoJImF1dGhzIjogewoJCSJodHRwczovL2luZGV4LmRvY2tlci5pby92MS8iOiB7ImF1dGgiOiAiYzI5dWFXRnRZV2hoYm10aGJHazZTVzFqYUdGdGNESTAifQoJfSwKCSJIdHRwSGVhZGVycyI6IHsKCQkiVXNlci1BZ2VudCI6ICJEb2NrZXItQ2xpZW50LzE5LjAzLjUgKGRhcndpbikiCgl9LAoJImNyZWRzU3RvcmUiOiAiZGVza3RvcCIsCgkiZXhwZXJpbWVudGFsIjogImRpc2FibGVkIiwKCSJzdGFja09yY2hlc3RyYXRvciI6ICJzd2FybSIKfQo=
-
 redis:
-    password: "password"
-
+  password: "password"
 redisPort: 6379
-
 initContainers:
-    name: busybox:1.28
+  name: busybox:1.28
+image:
+  name: |
+    soniamahankali/webapp-backend:07da54e720ff9915e7a93100feeaea4b51d2eb35
