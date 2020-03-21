@@ -16,3 +16,4 @@ initContainers:
 image:
   name: |
     soniamahankali/webapp-backend:latest
+
