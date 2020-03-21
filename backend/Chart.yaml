@@ -1,0 +1,13 @@
+apiVersion: v2
+appVersion: 1.16.0
+description: A Helm chart for Kubernetes
+name: mychart
+type: application
+version: 0.1.0
+sources:
+  - https://github.com/SoniaMahankali/helm-charts.git
+maintainers:
+  - name: Sonia Mahankali
+    email: mahankali.s@husky.neu.edu
+  - name: Junjie He
+    email: he.jun@husky.neu.edu

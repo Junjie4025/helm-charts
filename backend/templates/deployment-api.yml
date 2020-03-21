@@ -1,0 +1,74 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-api
+  namespace: api
+  labels:
+    app: api
+spec:
+  replicas: {{ .Values.replicaCount }}
+  minReadySeconds: 15
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+      - name: api
+        image: {{ .Values.imageBackend }}
+        imagePullPolicy: Always
+        env:
+          - name: db_url
+            valueFrom: 
+              configMapKeyRef:
+                name: {{ .Release.Name }}-configmap-api
+                key: db_url
+          - name: bucket_url
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Release.Name }}-configmap-api
+                key: bucket_url
+          - name: redisHost
+            value: {{ .Release.Name }}-redis.default 
+          - name: redisPass
+            value: {{ .Values.redis.password }}
+          - name: redisPort
+            value: {{ .Values.redisPort | quote }}
+        ports:
+          - name: live-port
+            containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /test
+            port: 8080
+          initialDelaySeconds: 60
+          periodSeconds: 30
+        readinessProbe:
+          httpGet:
+            path: /test
+            port: 8080
+          initialDelaySeconds: 60
+          periodSeconds: 30
+      imagePullSecrets:
+      - name: {{ .Release.Name }}-registrykey
+      initContainers:
+        - name: init-redis
+          image: {{ .Values.initContainers.name }}
+          command:
+            - 'sh'
+            - '-c'
+            - >
+              until nslookup {{ .Release.Name }}-redis.default ;
+                do echo waiting for myservice;
+                sleep 2;
+              done;
+      
