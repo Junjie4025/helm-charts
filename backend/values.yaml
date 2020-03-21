@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
-imageBackend: junjie3617/webapp-backend:c3b12dc141ecef6a7f676b1d6a7b43a485772658
+imageBackend: junjie3617/webapp-backend:bc995f4ce56a089aa9b52df90ba739ca3f340b71
 imageFrontend: junjie3617/webapp-frontend:latest
 backendUrl: localhost
 databaseUrl: db1.cg5qut7oyct5.us-east-1.rds.amazonaws.com
