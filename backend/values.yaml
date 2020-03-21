@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 2
-imageBackend: soniamahankali/webapp-backend:900a041409b98a95fad37b5b2c27104e0d44020d
+imageBackend: soniamahankali/webapp-backend:latest
 imageFrontend: soniamahankali/webapp-frontend:latest
 databaseUrl: db1.cr0cwfqbfpxp.us-east-1.rds.amazonaws.com
 bucketUrl: k8s.dev.soniamahankali.com
@@ -15,4 +15,4 @@ initContainers:
   name: busybox:1.28
 image:
   name: |
-    soniamahankali/webapp-backend:36a1cde1433e8a173090b32a0baff4ce6fe7c5fc
+    soniamahankali/webapp-backend:latest
