@@ -15,4 +15,4 @@ initContainers:
   name: busybox:1.28
 image:
   name: |
-    soniamahankali/webapp-backend:2be6b44201afcb69be90d8606ff92ed86e94c08e
+    soniamahankali/webapp-backend:a912186aa5e60639dc4f8f4ef8672d3810736c8f
