@@ -9,6 +9,7 @@ backendUrl: localhost
 databaseUrl: db1.cg5qut7oyct5.us-east-1.rds.amazonaws.com
 bucketUrl: webapp-csye7374
 imagePullSecrets: ewoJImF1dGhzIjogewoJCSJodHRwczovL2luZGV4LmRvY2tlci5pby92MS8iOiB7CgkJCSJhdXRoIjogImFuVnVhbWxsTXpZeE56cElSV3AxYm1wcFpURXlNekF3TUE9PSIKCQl9Cgl9LAoJIkh0dHBIZWFkZXJzIjogewoJCSJVc2VyLUFnZW50IjogIkRvY2tlci1DbGllbnQvMTkuMDMuNSAoZGFyd2luKSIKCX0sCgkiZXhwZXJpbWVudGFsIjogImRpc2FibGVkIiwKCSJzdGFja09yY2hlc3RyYXRvciI6ICJzd2FybSIKfQ==
+
 redis:
   password: "password"
 redisPort: 6379

@@ -21,6 +21,9 @@ spec:
     metadata:
       labels:
         app: api
+      annotations: 
+        prometheus.io/scrape: 'true'
+        prometheus.io/port: '8002'
     spec:
       containers:
       - name: api
@@ -71,4 +74,3 @@ spec:
                 do echo waiting for myservice;
                 sleep 2;
               done;
-      

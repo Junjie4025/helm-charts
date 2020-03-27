@@ -1,0 +1,10 @@
+/var/lib/jenkins/workspace/backend/src/main/java/edu/northeastern/ccwebapp/repository/BookRepository.java
+/var/lib/jenkins/workspace/backend/src/main/java/edu/northeastern/ccwebapp/service/UserService.java
+/var/lib/jenkins/workspace/backend/src/main/java/edu/northeastern/ccwebapp/controller/BookController.java
+/var/lib/jenkins/workspace/backend/src/main/java/edu/northeastern/ccwebapp/pojo/Book.java
+/var/lib/jenkins/workspace/backend/src/main/java/edu/northeastern/ccwebapp/Util/ResponseMessage.java
+/var/lib/jenkins/workspace/backend/src/main/java/edu/northeastern/ccwebapp/CcwebappApplication.java
+/var/lib/jenkins/workspace/backend/src/main/java/edu/northeastern/ccwebapp/service/BookService.java
+/var/lib/jenkins/workspace/backend/src/main/java/edu/northeastern/ccwebapp/controller/UserController.java
+/var/lib/jenkins/workspace/backend/src/main/java/edu/northeastern/ccwebapp/repository/UserRepository.java
+/var/lib/jenkins/workspace/backend/src/main/java/edu/northeastern/ccwebapp/pojo/User.java
