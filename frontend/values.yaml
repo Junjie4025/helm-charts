@@ -1,0 +1,19 @@
+# Default values for mychart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 2
+imageBackend: soniamahankali/webapp-backend:af498d15984207dbc536d37e74a2141a85b6e3e9
+imageFrontend: soniamahankali/webapp-frontend:3e56c3c36b134f4ce195f62b9bcd32cb451f8d01
+backendUrl: localhost
+databaseUrl: db1.cr0cwfqbfpxp.us-east-1.rds.amazonaws.com
+bucketUrl: k8s.dev.soniamahankali.com
+imagePullSecrets: ewoJImF1dGhzIjogewoJCSJodHRwczovL2luZGV4LmRvY2tlci5pby92MS8iOiB7ImF1dGgiOiAiYzI5dWFXRnRZV2hoYm10aGJHazZTVzFqYUdGdGNESTAifQoJfSwKCSJIdHRwSGVhZGVycyI6IHsKCQkiVXNlci1BZ2VudCI6ICJEb2NrZXItQ2xpZW50LzE5LjAzLjUgKGRhcndpbikiCgl9LAoJImNyZWRzU3RvcmUiOiAiZGVza3RvcCIsCgkiZXhwZXJpbWVudGFsIjogImRpc2FibGVkIiwKCSJzdGFja09yY2hlc3RyYXRvciI6ICJzd2FybSIKfQo=
+redis:
+  password: "password"
+redisPort: 6379
+initContainers:
+  name: busybox:1.28
+image:
+  name: |
+    soniamahankali/webapp-frontend:5a3237c16bb34b0ab7096f02dc3e3d3184444e60
