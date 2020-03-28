@@ -22,7 +22,6 @@ spec:
       labels:
         app: ui
     spec:
-
       initContainers:
         - name: init-cotainer-ui
           image: {{ .Values.initContainers.name }}
@@ -41,6 +40,10 @@ spec:
         ports:
           - name: live-port
             containerPort: 3000
+        resources:
+          requests:
+            memory: "8Mi"
+            cpu: "1m"
         livenessProbe:
           httpGet:
             path: /
